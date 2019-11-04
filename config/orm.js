@@ -1,27 +1,42 @@
-// Import MySQL connection.
-var connection = require("../config/connection.js");
+const connection = require("./connection.js");
 
-// Helper function for SQL syntax.
-// Let's say we want to pass 3 values into the mySQL query.
-// In order to write the query, we need 3 question marks.
-// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
-// ["?", "?", "?"].toString() => "?,?,?";
-function selectAll() {
-    
-  return
-};
+//blank query variable 
+let query = "";
 
-// Helper function to convert object key/value pairs to SQL syntax
-function insertOne() {
+let orm = {
 
-    return
-};
+//This Query Selects all from the MYSQL DB
+selectAll: function (cb){
+query = "SELECT * FROM burgers";
+connection.query(query, function(err, result) {
+    if (err) throw err;
+    cb(result);
+  })
+},
 
-function updateOne() {
+//This Query Inserts the Variable into the MYSQL DB
+insertOne: function(type){
+query = "INSERT INTO burgers (burger_name, devoured) VALUES (?,?)";
+connection.query(query,[type, 0], function(err, result) {
+        if (err) throw err;
+      });
+},
 
-    return
-};
+//This Query updates a value in the mysql database (the boolean to true)
+updateOne: function (choice) {
+query = "UPDATE burgers SET ? WHERE ?";
+connection.query(query,[{devoured: 1}, {burger_name: choice}], function(err, result) {
+    if (err) throw err;
+  }); 
+}
+//export this for the .JS file
+}
 
+//bellow is a sample callback function so we can deal with the 
+//async properties of mysql queries 
+// orm.selectAll(function(result) {
+// let data = result
+// console.log(data);
+// })
 
-// Export the orm object for the model .
 module.exports = orm;
