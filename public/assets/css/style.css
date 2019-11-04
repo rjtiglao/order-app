@@ -1,0 +1,22 @@
+body {
+    background-color: bisque;
+    display: grid;
+    };
+#header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orange;
+}
+#burger{
+    width: 200px;
+    height: 400px;
+    padding: 5px;
+    align-content: center;
+}
+#left{
+    float: left;
+    }
+    #right{
+    float: right;
+    color: grey;
+    }
+    
