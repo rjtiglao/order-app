@@ -15,12 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //start Handlebars
-app.engine(
-  "handlebars",
-  exphbs({ defaultLayout: "main", extname: ".handlebars" })
-);
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
+app.set("view engine", ".handlebars");
+app.engine(".handlebars", exphbs({ defaultLayout: "main" }));
 
 //Server listen command
 app.listen(PORT, function() {
@@ -36,7 +33,7 @@ app.get("/", function(req, res) {
   burger.select(function(data) {
     let stupidOject = { burger: data };
 
-    res.render("index", stupidOject);
+    res.render("main", stupidOject);
   });
 });
 
