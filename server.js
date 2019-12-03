@@ -27,13 +27,13 @@ app.listen(PORT, function() {
 //Allows CSS and Image files to be Loaded
 app.use(express.static("public"));
 
-// route that renders the index handlebars file
+// route that renders the main handlebars file
 //Callback returns the information from Mysql
 app.get("/", function(req, res) {
   burger.select(function(data) {
-    let stupidOject = { burger: data };
+    let Object = { burger: data };
 
-    res.render("main", stupidOject);
+    res.render("main", Object);
   });
 });
 
