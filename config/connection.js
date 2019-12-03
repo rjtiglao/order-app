@@ -1,8 +1,8 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
-const key = require("./keys.js");
+const key = require("./keys");
 
-//connection configuration 
+//connection configuration
 const connection = mysql.createConnection({
   host: key.host,
   port: key.port,
@@ -10,7 +10,8 @@ const connection = mysql.createConnection({
   password: key.password,
   database: key.database
 });
-
+console.log("Hello");
+console.log(key.host);
 //Makes connection with DB
 connection.connect(function(err) {
   if (err) {
