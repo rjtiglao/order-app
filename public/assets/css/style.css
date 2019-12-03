@@ -1,22 +1,21 @@
 body {
-    background-color: bisque;
-    display: grid;
-    };
-#header{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: orange;
+  background-color: bisque;
+  display: grid;
 }
-#burger{
-    width: 200px;
-    height: 400px;
-    padding: 5px;
-    align-content: center;
+#header {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: orange;
 }
-#left{
-    float: left;
-    }
-    #right{
-    float: right;
-    color: grey;
-    }
-    
+.burger {
+  max-width: 20px;
+  max-height: 40px;
+  padding: 5px;
+  align-content: center;
+}
+#left {
+  float: left;
+}
+#right {
+  float: right;
+  color: grey;
+}
